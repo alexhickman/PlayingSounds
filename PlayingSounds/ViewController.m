@@ -7,8 +7,14 @@
 //
 
 #import "ViewController.h"
+#import "SoundManager.h"
+#import <Parse/Parse.h>
+#import "Sounds.h"
 
 @interface ViewController ()
+{
+    NSMutableArray *arrayOfSounds;
+}
 
 @end
 
@@ -16,12 +22,54 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor redColor];
+ 
+    SoundManager *sApiInstance = [SoundManager sharedManager];
+    
+    
+    if ([arrayOfSounds count] != 0)
+    {
+        NSLog(@"test");
+    }
+    
+    // arrayOfSounds is empty
+    else
+    {
+        arrayOfSounds = [sApiInstance populateSoundsArray];
+        [self.tableView reloadData];
+    }
+    [self.tableView performSelector:@selector(reloadData)  withObject:nil afterDelay:5];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (IBAction)button:(id)sender
+{
+    [self.tableView reloadData];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *cellIdentifier = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if(!cell)
+    {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+    }
+    
+    cell.textLabel.text = ((Sounds *)arrayOfSounds[indexPath.row]).fileName;
+    return cell;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [arrayOfSounds count];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    AVAudioPlayer *newPlayer = [[AVAudioPlayer alloc] initWithData:((Sounds *)arrayOfSounds[indexPath.row]).audioFile error:nil];
+    self.player = newPlayer;
+    [self.player play];
 }
 
 @end

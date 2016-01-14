@@ -16,6 +16,9 @@
 		88A651141C4714960025F260 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88A651121C4714960025F260 /* LaunchScreen.storyboard */; };
 		88A6511F1C4714960025F260 /* PlayingSoundsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A6511E1C4714960025F260 /* PlayingSoundsTests.m */; };
 		88A6512A1C4714960025F260 /* PlayingSoundsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A651291C4714960025F260 /* PlayingSoundsUITests.m */; };
+		88A6513A1C4716240025F260 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A651391C4716240025F260 /* SoundManager.m */; };
+		88A6513D1C4716360025F260 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A6513C1C4716360025F260 /* Constants.m */; };
+		88A651401C4727280025F260 /* Sounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A6513F1C4727280025F260 /* Sounds.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,12 @@
 		88A651251C4714960025F260 /* PlayingSoundsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayingSoundsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A651291C4714960025F260 /* PlayingSoundsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayingSoundsUITests.m; sourceTree = "<group>"; };
 		88A6512B1C4714960025F260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88A651381C4716240025F260 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
+		88A651391C4716240025F260 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
+		88A6513B1C4716360025F260 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		88A6513C1C4716360025F260 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		88A6513E1C4727280025F260 /* Sounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sounds.h; sourceTree = "<group>"; };
+		88A6513F1C4727280025F260 /* Sounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sounds.m; sourceTree = "<group>"; };
 		C4A9223D6128185584DCADD9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +92,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		889A38541C477C3F008FBB91 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				88A6510A1C4714960025F260 /* ViewController.h */,
+				88A6510B1C4714960025F260 /* ViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		88A650F81C4714960025F260 = {
 			isa = PBXGroup;
 			children = (
@@ -110,8 +128,10 @@
 			children = (
 				88A651071C4714960025F260 /* AppDelegate.h */,
 				88A651081C4714960025F260 /* AppDelegate.m */,
-				88A6510A1C4714960025F260 /* ViewController.h */,
-				88A6510B1C4714960025F260 /* ViewController.m */,
+				88A6513E1C4727280025F260 /* Sounds.h */,
+				88A6513F1C4727280025F260 /* Sounds.m */,
+				889A38541C477C3F008FBB91 /* Controllers */,
+				88A651371C47160A0025F260 /* API */,
 				88A6510D1C4714960025F260 /* Main.storyboard */,
 				88A651101C4714960025F260 /* Assets.xcassets */,
 				88A651121C4714960025F260 /* LaunchScreen.storyboard */,
@@ -145,6 +165,17 @@
 				88A6512B1C4714960025F260 /* Info.plist */,
 			);
 			path = PlayingSoundsUITests;
+			sourceTree = "<group>";
+		};
+		88A651371C47160A0025F260 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				88A651381C4716240025F260 /* SoundManager.h */,
+				88A651391C4716240025F260 /* SoundManager.m */,
+				88A6513B1C4716360025F260 /* Constants.h */,
+				88A6513C1C4716360025F260 /* Constants.m */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 		9594100EF75D46FE870F51FD /* Frameworks */ = {
@@ -348,9 +379,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88A6513D1C4716360025F260 /* Constants.m in Sources */,
 				88A6510C1C4714960025F260 /* ViewController.m in Sources */,
+				88A6513A1C4716240025F260 /* SoundManager.m in Sources */,
 				88A651091C4714960025F260 /* AppDelegate.m in Sources */,
 				88A651061C4714960025F260 /* main.m in Sources */,
+				88A651401C4727280025F260 /* Sounds.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +524,7 @@
 			baseConfigurationReference = 3116D31D95AD467757529394 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = PlayingSounds/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -503,6 +538,7 @@
 			baseConfigurationReference = C4A9223D6128185584DCADD9 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = PlayingSounds/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
